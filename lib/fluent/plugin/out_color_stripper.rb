@@ -2,10 +2,14 @@ module Fluent
   class ColorStripperOutput < Output
     Fluent::Plugin.register_output('color_stripper', self)
 
+    config_param :tag, :string
     config_param :strip_fields, :string, default: nil
 
     def configure(conf)
       super
+
+      @tag = conf.fetch('tag') { raise ArgumentError, 'tag field is required to direct transformed logs to' }
+
       @strip_fields_arr = conf['strip_fields'].to_s.split(/\s*,\s*/).map do |field|
         field unless field.strip.empty?
       end.compact

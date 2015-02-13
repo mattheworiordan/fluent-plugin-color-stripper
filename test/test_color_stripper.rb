@@ -57,4 +57,14 @@ class ColorStripperOutputTest < Test::Unit::TestCase
       }
     ], d1.records
   end
+
+  def test_missing_tag
+    err = assert_raises Fluent::ConfigError do
+      create_driver %[
+        type color_stripper
+      ]
+    end
+
+    assert_match /tag.*required/, err.message
+  end
 end
