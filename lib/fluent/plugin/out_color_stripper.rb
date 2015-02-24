@@ -52,7 +52,6 @@ module Fluent
     end
 
     def strip_field?(field)
-      puts @strip_fields_arr
       @strip_fields_arr.empty? || @strip_fields_arr.include?(field)
     end
   end

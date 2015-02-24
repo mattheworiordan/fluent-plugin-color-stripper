@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "fluent-plugin-color-stripper"
-  spec.version       = "0.0.2"
+  spec.version       = "0.0.3"
   spec.authors       = ["Matthew O'Riordan"]
   spec.email         = ["matt@ably.io "]
   spec.description   = %q{Output plugin to strip ANSI color codes in the logs.}
