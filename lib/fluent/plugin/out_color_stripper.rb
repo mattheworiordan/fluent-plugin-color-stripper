@@ -39,16 +39,7 @@ module Fluent
     # Return uncolorized string
     #
     def uncolorize(string)
-      scan_for_colors(string).inject('') do |str, match|
-        str << (match[3] || match[4])
-      end
-    end
-
-    #
-    # Scan for colorized string
-    #
-    def scan_for_colors(string)
-      string.scan(/\033\[([0-9]+);([0-9]+);([0-9]+)m(.+?)\033\[0m|([^\033]+)/m)
+      string.gsub(/\033\[\d{1,2}(;\d{1,2}){0,2}[mGK]/, '')
     end
 
     def strip_field?(field)
