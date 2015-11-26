@@ -67,4 +67,23 @@ class ColorStripperOutputTest < Test::Unit::TestCase
 
     assert_match /tag.*required/, err.message
   end
+
+  def test_dangling_colors
+    d1 = create_driver %[
+      type color_stripper
+      tag  formatted
+    ]
+
+    d1.run do
+      d1.emit('decolorize' => "\033[0m")
+      d1.emit('decolorize' => "\033[0;36;1m")
+      d1.emit('decolorize' => "\033[0;36m")
+    end
+
+    assert_equal [
+      {'decolorize' => ''},
+      {'decolorize' => ''},
+      {'decolorize' => ''}
+    ], d1.records
+  end
 end
