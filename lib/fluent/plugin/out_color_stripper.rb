@@ -3,14 +3,10 @@ module Fluent
     Fluent::Plugin.register_output('color_stripper', self)
 
     config_param :tag, :string
-    config_param :strip_fields, :string, default: nil
+    config_param :strip_fields, :array, value_type: :string, default: []
 
     def configure(conf)
       super
-
-      @strip_fields_arr = conf['strip_fields'].to_s.split(/\s*,\s*/).map do |field|
-        field unless field.strip.empty?
-      end.compact
     end
 
     def emit(tag, es, chain)
@@ -41,7 +37,7 @@ module Fluent
     end
 
     def strip_field?(field)
-      @strip_fields_arr.empty? || @strip_fields_arr.include?(field)
+      @strip_fields.empty? || @strip_fields.include?(field)
     end
   end
 end
