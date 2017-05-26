@@ -8,8 +8,6 @@ module Fluent
     def configure(conf)
       super
 
-      @tag = conf.fetch('tag') { raise ArgumentError, 'tag field is required to direct transformed logs to' }
-
       @strip_fields_arr = conf['strip_fields'].to_s.split(/\s*,\s*/).map do |field|
         field unless field.strip.empty?
       end.compact
