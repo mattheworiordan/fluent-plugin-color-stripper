@@ -14,7 +14,7 @@ You can specify all or specific fields to have the ANSI color stripped
 ## Usage
 
     <match input.tag>
-        type color_stripper
+        @type color_stripper
         tag  output.tag
         strip_fields key1, key2
     </match>
@@ -40,7 +40,7 @@ Then you get:
 If the field `strip_fields` is omitted or is empty then all fields will have their color stripped.
 
     <match input.tag>
-        type color_stripper
+        @type color_stripper
         tag  output.tag
     </match>
 
