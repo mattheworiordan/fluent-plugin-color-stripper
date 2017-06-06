@@ -20,5 +20,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake", "~> 10"
   spec.add_development_dependency "colorize", "~> 0.7.5"
+  spec.add_development_dependency "test-unit", "> 3.2"
   spec.add_runtime_dependency "fluentd", "~> 0.12"
 end
