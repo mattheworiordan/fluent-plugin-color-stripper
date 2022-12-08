@@ -10,7 +10,7 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        ruby-version: ["1.9.3"]
+        ruby-version: ["1.9.3", "2.3"]
 
     steps:
       - uses: actions/checkout@v3
