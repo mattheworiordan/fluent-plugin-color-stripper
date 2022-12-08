@@ -26,4 +26,5 @@ jobs:
 
       - name: test with Rake
         run: |
-          bundle exec rake spec
+          bundle exec rake --tasks
+          bundle exec rake test
