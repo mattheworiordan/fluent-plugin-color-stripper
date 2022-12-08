@@ -10,7 +10,7 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        ruby-version: ["1.9.3", "2.3"]
+        ruby-version: ["2.3"]
 
     steps:
       - uses: actions/checkout@v3
@@ -20,7 +20,7 @@ jobs:
           ruby-version: ${{ matrix.ruby-version }}
       - name: Install gem packages
         run: |
-          gem install bundler -v 1.17.3
+          gem install bundler
           bundle install --jobs 4 --retry 3
           bundle exec gem dependency -R
 
