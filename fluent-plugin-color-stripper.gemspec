@@ -17,10 +17,9 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 2.0"
+  spec.add_development_dependency "bundler", "~> 2.3"
   spec.add_development_dependency "rake", "~> 10"
   spec.add_development_dependency "colorize", "~> 0.7.5"
   spec.add_development_dependency "test-unit", "> 3.2"
-  spec.add_runtime_dependency "json", "1.8.6" # Pin for passing tests
   spec.add_runtime_dependency "fluentd", "~> 0.12"
 end
